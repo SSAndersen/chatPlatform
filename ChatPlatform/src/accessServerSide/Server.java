@@ -5,7 +5,7 @@ import java.net.*;
 
 public class Server {
 	
-	void server() throws Exception{
+	public void run() throws Exception{
 	ServerSocket serverSocket = new ServerSocket(666);
 	Socket socket = serverSocket.accept();
 	PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
@@ -15,6 +15,11 @@ public class Server {
     
     String message = in.readLine();
     System.out.println(message);
+    
+    if(message != null){
+    	PrintStream printStream = new PrintStream(socket.getOutputStream());
+    	printStream.println("serverside --> Clintside");
+    }
 	
 	}
 
