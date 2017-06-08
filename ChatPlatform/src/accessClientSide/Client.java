@@ -3,7 +3,6 @@ package accessClientSide;
 import java.io.*;
 import java.net.*;
 import java.util.Observable;
-import java.util.Observer;
 
 public class Client extends Observable implements Runnable {
 	private String message;
