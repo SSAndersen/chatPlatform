@@ -14,24 +14,24 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ChatWindow extends Stage implements Observer {
-	GridPane root;
+	GridPane chatGrid;
 	Scene scene;
 	TextArea messagesHistory;
 	Client clientSide;
 
 	public ChatWindow() {
 		this.setTitle("Chat window");
-		root = new GridPane();
-		scene = new Scene(root);
+		chatGrid = new GridPane();
+		scene = new Scene(chatGrid);
 		this.setScene(scene);
-		
+
 		serverSetup();
-		
+
 		this.start();
 	}
 
 	private void start() {
-		root.add(chat(), 0, 0);
+		chatGrid.add(chat(), 0, 0);
 
 		this.show();
 	}
