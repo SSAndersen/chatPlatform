@@ -1,8 +1,8 @@
 package appGUI;
 
-import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-public class mainPage extends GridPane{
+public class mainPage extends Stage{
 	
 
 }
