@@ -18,21 +18,16 @@ public class ChatWindow extends Stage implements Observer {
 	Scene scene;
 	TextArea messagesHistory;
 	Client clientSide;
-	
+
 	public ChatWindow() {
 		this.setTitle("Chat window");
 		root = new GridPane();
 		scene = new Scene(root);
 		this.setScene(scene);
-		clientSide = new Client();
-		Server serverSide = new Server();
-		new Thread(serverSide).start();
 		
-
-		clientSide.addObserver(this);
-		new Thread(clientSide).start();
+		serverSetup();
+		
 		this.start();
-	
 	}
 
 	private void start() {
@@ -44,26 +39,31 @@ public class ChatWindow extends Stage implements Observer {
 	private VBox chat() {
 		VBox chat = new VBox();
 		messagesHistory = new TextArea();
-		
+
 		HBox messageSend = new HBox();
 		TextArea sendTextArea = new TextArea();
-		Button sendButton = new Button();
-		
+		Button sendButton = new Button("Send");
+
 		messageSend.getChildren().addAll(sendTextArea, sendButton);
-		
-		
+
 		chat.getChildren().addAll(messagesHistory, messageSend);
 		return chat;
 	}
 
+	private void serverSetup() {
+		clientSide = new Client();
+		Server serverSide = new Server();
+		new Thread(serverSide).start();
+		clientSide.addObserver(this);
+		new Thread(clientSide).start();
+	}
+
 	@Override
 	public void update(Observable o, Object arg) {
-		if(o instanceof Client){
-		String message = ((Client) o).getState();
-		System.out.println(message);
-		messagesHistory.appendText(message + "\n");
-		} else if (o instanceof Server){
-			
+		if (o instanceof Client) {
+			String message = ((Client) o).getState();
+			messagesHistory.appendText(message + "\n");
+		} else if (o instanceof Server) {
 		}
 	}
 }
