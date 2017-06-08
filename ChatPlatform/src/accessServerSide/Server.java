@@ -1,4 +1,4 @@
-package serverSide;
+package accessServerSide;
 
 import java.io.*;
 import java.net.*;
