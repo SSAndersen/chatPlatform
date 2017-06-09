@@ -15,6 +15,7 @@ public class MainMenu extends Stage {
 		this.setTitle("Main menu");
 		grid = new GridPane();
 		scene = new Scene(grid);
+		scene.getStylesheets().addAll(this.getClass().getResource("application.css").toExternalForm());
 		this.setScene(scene);
 		start();
 	}
@@ -22,7 +23,7 @@ public class MainMenu extends Stage {
 	private void start() {
 		grid.add(menuItems(), 0, 0);
 
-		grid.setAlignment(Pos.TOP_CENTER);
+		grid.setAlignment(Pos.CENTER);
 		this.setMinHeight(300);
 		this.setMinWidth(200);
 
@@ -33,7 +34,7 @@ public class MainMenu extends Stage {
 		VBox vbox = new VBox();
 		Button chatButton = chatButton();
 
-		vbox.getChildren().addAll(chatButton);
+		vbox.getChildren().addAll(chatButton, saenkeSlagSkibButton());
 		return vbox;
 	}
 
@@ -45,6 +46,10 @@ public class MainMenu extends Stage {
 		});
 
 		return chatButton;
+	}
 
+	private Button saenkeSlagSkibButton() {
+		Button SænkeSlagskib = new Button("Sænke slagskib");
+		return SænkeSlagskib;
 	}
 }
