@@ -16,8 +16,8 @@ public class JoinServer {
 		
 		GridPane grid = new GridPane();
 		
-		HBox ipAdressHBox = writeHboxCreator("Write ipadress: ", ipAdressText = new TextField());
-		HBox portHBox = writeHboxCreator("Write portnr.: ", portText = new TextField());
+		HBox ipAdressHBox = writeHboxCreator("Write ipadress: ", this.ipAdressText = new TextField());
+		HBox portHBox = writeHboxCreator("Write portnr.: ", this.portText = new TextField());
 
 		grid.add(ipAdressHBox, 0, 0);
 		grid.add(portHBox, 0, 1);
