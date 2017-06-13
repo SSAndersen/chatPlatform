@@ -25,9 +25,7 @@ public class JoinOrHostServer extends Stage {
 	}
 
 	private void start() {
-		this.setWidth(250);
-		this.setHeight(200);
-
+		this.sizeToScene();
 		this.show();
 	}
 
@@ -58,10 +56,12 @@ public class JoinOrHostServer extends Stage {
 				}
 
 				grid.add(hostServerGrid, 0, 1);
+				this.sizeToScene();
 			} else {
 				hostButton.setText("Open host menu");
 				isHostMenuOpen = false;
 				grid.getChildren().remove(hostServerGrid);
+				this.sizeToScene();
 			}
 		});
 
